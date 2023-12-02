@@ -15,7 +15,9 @@ class Storage{
 
     removeItem(itemToRemove) { 
         const findIndex = this.#items.indexOf(itemToRemove);
-        this.#items.splice(findIndex, 1);
+        if (findIndex !== -1) {
+            this.#items.splice(findIndex, 1);
+        }
     }
 
 
@@ -23,11 +25,12 @@ class Storage{
 }
 
 
-// const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
 
 
-// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
-// storage.addItem("Droid");
-// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-// storage.removeItem("Prolonger");
-// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+storage.addItem("Droid");
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage.removeItem("Prolonger");
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
